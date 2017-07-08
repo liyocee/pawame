@@ -10,6 +10,8 @@ class APICacheMiddleware(MiddlewareMixin):
         self.cache = caches['default'] # use default cache, Todo - make this configurable to allow different caching backends
 
     def process_request(self, request):
+        if request.method != 'GET': # only serve GET requests from the cache
+            return None
         return self.cache.get(request.path)
 
     def process_response(self, request, response):

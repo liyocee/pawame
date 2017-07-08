@@ -8,13 +8,16 @@ class CachedEndpoint(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request, format=None):
+        return Response(self._get_page(timezone.now()))
 
-        page = {
-            "title": "This should be cached",
-            "served_at": timezone.now()
+    def post(self, request):
+        return Response(self._get_page(timezone.now()))
+
+    def _get_page(self, served_at):
+        return {
+            'title': 'This should never be cached',
+            'served_at': served_at
         }
-        return Response(page)
-
 
 class NonCachedEndpoint(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -22,7 +25,7 @@ class NonCachedEndpoint(APIView):
     def get(self, request, format=None):
 
         page = {
-            "title": "This should never be cached",
-            "served_at": timezone.now()
+            'title': 'This should never be cached',
+            'served_at': timezone.now()
         }
         return Response(page)
