@@ -1,8 +1,8 @@
-#Django API Caching Middleware
+Django API Caching Middleware
 
 - Middleware to cache specific defined APIs.
 
-#Setup
+Setup
 
 - Create a python virtual environment:
   - Ensure you have `pip` installed
@@ -13,4 +13,11 @@
   - Install project dependencies within the activate virtual environment: `pip install -r requirements.txt`
   - Run django migrations: `python manage.py migrate`
 
-# Testing
+Testing
+
+- Three endpoints have been defined:
+  -  GET - `/api/v1/cached` -  will always be cached
+  -  POST - `/api/v1/cached` -  will never be cached
+  -  GET - `/api/v1/not_cached` -  will never be cached
+
+- Run `python manage.py test` to test the caching middleware, for the above endpoints
