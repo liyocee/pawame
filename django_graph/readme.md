@@ -34,6 +34,6 @@ N/B - ensure you have redis-server installed on your machine
 
 - Random Generator endpoint:
   - The endpoint is available at: `http://localhost:8000/api/v1/random/`
-  - Then you do a `POST` to this endpoint, a random number is generated, and
+  - When you do a `POST` to this endpoint, a random number is generated, and
   the graph is automatically updated
 
