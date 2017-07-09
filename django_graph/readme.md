@@ -37,3 +37,6 @@ N/B - ensure you have redis-server installed on your machine
   - When you do a `POST` to this endpoint, a random number is generated, and
   the graph is automatically updated
 
+  - To generate 100 random requests to the the random generator API as you see the graph updated,
+  run `python test.py`
+

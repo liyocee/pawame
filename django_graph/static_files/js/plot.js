@@ -26,9 +26,10 @@
       // when a "create" event has been fired, update the graph
       if(action.action === 'create') {
         // update graph
+        console.log(action.data)
         Plotly.extendTraces('graph', {
           y: [[action.data.number]],
-          x: [[action.data.created_on]]
+          x: [[action.data.id]]
         }, [0]);
       }
 
@@ -39,7 +40,7 @@
           type: 'scatter',                    // set the chart type
           mode: 'lines+markers',                      // connect points with lines
           x: action.data.map(function(row) {          // set the x-data
-            return row.created_on;
+            return row.id;
           }),
           y: action.data.map(function(row) {          // set the x-data
             return row.number;
@@ -49,11 +50,7 @@
           }
         };
         var layout = {
-          yaxis: {title: "Random Number"},       // set the y axis title
-          xaxis: {
-            showgrid: false,                  // remove the x-axis grid lines
-            tickformat: "%H:%M:%S"              // customize the date format
-          }
+          yaxis: {title: "Random Number"},      // set the y axis title
         };
         Plotly.plot('graph', [trace], layout, {showLink: false});
       }
