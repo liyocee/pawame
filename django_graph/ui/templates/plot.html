@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<head>
+  <title>Random Number Graph</title>
+</head>
+<body>
+  <h1> Simple Random Number Graph </h1>
+  <div id='graph'></div>
+
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <script src="{% static 'channels/js/websocketbridge.js' %}"></script>
+  <script src="{% static 'js/plot.js' %}"></script>
+</body>
